@@ -83,22 +83,13 @@ class App extends React.Component {
     const {loading,presentRegion,is_visible} = this.state;
     let pageData,loader;
 
-   
-    let regionnavigationStyleindia = "2.6px solid red" ;
-    let regionnavigationStyleWorld = "2.6px solid transparent";
-
-    if(this.state.presentRegion === "World"){
-      regionnavigationStyleindia ="2.6px solid transparent";
-      regionnavigationStyleWorld = "2.6px solid red";
-    }
-
     pageData = <div>
     <div className="header">
       <h5 style={{ padding: '10px' }}>
         <a href="/" className="navbar-brand router-link-exact-active active" target="_self"><img src={require("./viruslogo.png")} alt="Covid" height="30" width="30" className="d-inline-block align-top mr-1" />COVID-19 </a>
         <div style={{display:"flex",float:"right"}}>
-          <p val="india"  onClick={()=>this.showRegionData('India')} style={{height:"40px",cursor:"pointer",color:presentRegion==='India'?'red':'black',borderBottom:regionnavigationStyleindia,fontWeight:"500"}}> <i className="fa fa-map-marker"></i>&nbsp;India</p>
-          <p val="world" onClick={()=>this.showRegionData('World')} style={{cursor:"pointer",marginLeft:'25px',color:presentRegion==='India'?'black':'red',borderBottom:regionnavigationStyleWorld}}><i className="fa fa-globe"></i>&nbsp;World</p>
+          <p val="india"  onClick={()=>this.showRegionData('India')} style={{height:"40px",cursor:"pointer",color:presentRegion==='India'?'red':'black',borderBottom:presentRegion === "India"?"2.6px solid red":"2.6px solid transparent",fontWeight:"500"}}> <i className="fa fa-map-marker"></i>&nbsp;India</p>
+          <p val="world" onClick={()=>this.showRegionData('World')} style={{cursor:"pointer",marginLeft:'25px',color:presentRegion==='India'?'black':'red',borderBottom:presentRegion==="World"?"2.6px solid red":"2.6px solid transparent"}}><i className="fa fa-globe"></i>&nbsp;World</p>
         </div>
       </h5>
     </div><br></br><br></br><br></br>

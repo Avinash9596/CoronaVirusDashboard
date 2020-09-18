@@ -3,7 +3,6 @@ import code from "./../countrycordinates.json";
 const coronoService ={
 
     structureData:function(value,presentRegion){
-        console.log("str called");
         let structuredData={};
 
         //INITIALISING ALL THE FIELDS 

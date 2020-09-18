@@ -127,9 +127,7 @@ class tableData extends React.Component
             <div className="col-sm-12 datatable">
               <DataTable onRowClick ={(event)=>this.getDistrictData(event.data.name)} className="p-datatable-places" rowHover emptyMessage="No records found" header={header} value={this.state.data} responsive={true} paginator={true} rows={10}>
                  <Column field="name" header={name} sortable={true} body={(rowData)=>{
-                     let textdecoration="underline"; 
-                     if(name === 'Country') textdecoration="none";
-                     return <span title="Click to get District Wise Data" style={{fontWeight:"550",textDecoration:textdecoration,color:"#337ab7"}}>{rowData.name}</span>}} />     
+                     return <span title = {name !== "Country"?"Click to get District Wise Data":null} style={{fontWeight:"550",textDecoration:name==="Country"?"none":"underline",color:"#337ab7"}}>{rowData.name}</span>}} />     
                  <Column field="cases" body={(rowData)=>{
                       let changes;
                       if(rowData.changeinConfirmed !== 0) changes = <span title="Change since yesterday" className="fa fa-arrow-up" style={{fontWeight:'500',color:"#ef3c3c"}}>{rowData.changeinConfirmed}</span>
