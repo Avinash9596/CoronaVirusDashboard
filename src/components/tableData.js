@@ -88,7 +88,7 @@ class tableData extends React.Component
 
     render(){
       
-        const name = this.context.presentRegion === "World"?"Country":"State";
+        const name = this.context.presentRegion === "World"?"Country":"State/UT";
         let districtTable;
             
         const header = <div className="headerdiv">

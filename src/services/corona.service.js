@@ -1,9 +1,9 @@
 import code from "./../countrycordinates.json";
 
 const coronoService ={
-    
 
     structureData:function(value,presentRegion){
+        console.log("str called");
         let structuredData={};
 
         //INITIALISING ALL THE FIELDS 
@@ -67,9 +67,10 @@ const coronoService ={
             }
             
             //TO MAP CASES IN MAP CHART
-            if(presentRegion === 'India')
+            if(presentRegion === 'India'){
+                element = element === "Arunachal Pradesh"?"arunanchal pradesh": (element === "Delhi"?"nct of delhi": (element === "Andaman and Nicobar Islands"?"andaman and nicobar" : element.toLowerCase()));
                 structuredData["mapdata"].push([element === "Arunachal Pradesh"?"arunanchal pradesh":element.toLowerCase(),parseInt(confirmed[confirmed.length-1][1]).toLocaleString()]);
-              
+            }       
             else
                 code.ref_country_codes.forEach(x=>{
                    if(x.country.toLowerCase() === element.toLowerCase())
@@ -77,7 +78,6 @@ const coronoService ={
                    
                 })
               
-
         });
         }
         catch(err){
